@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.websit.comment.mapper.EomsWebsitCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.websit.comment.model.EomsWebsitComment" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="commenter" property="commenter" jdbcType="VARCHAR" />
+    <result column="commenter_name" property="commenterName" jdbcType="VARCHAR" />
+    <result column="commenter_ip" property="commenterIp" jdbcType="VARCHAR" />
+    <result column="comment_product_id" property="commentProductId" jdbcType="VARCHAR" />
+    <result column="comment_product_name" property="commentProductName" jdbcType="VARCHAR" />
+    <result column="comment_tool_id" property="commentToolId" jdbcType="VARCHAR" />
+    <result column="comment_tool_name" property="commentToolName" jdbcType="VARCHAR" />
+    <result column="comment_type" property="commentType" jdbcType="VARCHAR" />
+    <result column="comment_content" property="commentContent" jdbcType="VARCHAR" />
+    <result column="commenter_os" property="commenterOs" jdbcType="VARCHAR" />
+    <result column="commenter_os_version" property="commenterOsVersion" jdbcType="VARCHAR" />
+    <result column="commenter_os_bit" property="commenterOsBit" jdbcType="VARCHAR" />
+    <result column="comment_websit_version" property="commentWebsitVersion" jdbcType="VARCHAR" />
+    <result column="commenter_browser_type" property="commenterBrowserType" jdbcType="VARCHAR" />
+    <result column="commenter_browser_version" property="commenterBrowserVersion" jdbcType="VARCHAR" />
+    <result column="comment_time" property="commentTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, commenter, commenter_name, commenter_ip, comment_product_id, comment_product_name,
+    comment_tool_id, comment_tool_name, comment_type, comment_content, commenter_os,
+    commenter_os_version, commenter_os_bit, comment_websit_version, commenter_browser_type,
+    commenter_browser_version, comment_time
+  </sql>
+
+  <select id="findCommentList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from eoms_websit_comment order by comment_time desc
+  </select>
+
+  <insert id="insert" parameterType="com.boco.eoms.websit.comment.model.EomsWebsitComment" >
+    insert into eoms_websit_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="commenter != null" >
+        commenter,
+      </if>
+      <if test="commenterName != null" >
+        commenter_name,
+      </if>
+      <if test="commenterIp != null" >
+        commenter_ip,
+      </if>
+      <if test="commentProductId != null" >
+        comment_product_id,
+      </if>
+      <if test="commentProductName != null" >
+        comment_product_name,
+      </if>
+      <if test="commentToolId != null" >
+        comment_tool_id,
+      </if>
+      <if test="commentToolName != null" >
+        comment_tool_name,
+      </if>
+      <if test="commentType != null" >
+        comment_type,
+      </if>
+      <if test="commentContent != null" >
+        comment_content,
+      </if>
+      <if test="commenterOs != null" >
+        commenter_os,
+      </if>
+      <if test="commenterOsVersion != null" >
+        commenter_os_version,
+      </if>
+      <if test="commenterOsBit != null" >
+        commenter_os_bit,
+      </if>
+      <if test="commentWebsitVersion != null" >
+        comment_websit_version,
+      </if>
+      <if test="commenterBrowserType != null" >
+        commenter_browser_type,
+      </if>
+      <if test="commenterBrowserVersion != null" >
+        commenter_browser_version,
+      </if>
+      <if test="commentTime != null" >
+        comment_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="commenter != null" >
+        #{commenter,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterName != null" >
+        #{commenterName,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterIp != null" >
+        #{commenterIp,jdbcType=VARCHAR},
+      </if>
+      <if test="commentProductId != null" >
+        #{commentProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentProductName != null" >
+        #{commentProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentToolId != null" >
+        #{commentToolId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentToolName != null" >
+        #{commentToolName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentType != null" >
+        #{commentType,jdbcType=VARCHAR},
+      </if>
+      <if test="commentContent != null" >
+        #{commentContent,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterOs != null" >
+        #{commenterOs,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterOsVersion != null" >
+        #{commenterOsVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterOsBit != null" >
+        #{commenterOsBit,jdbcType=VARCHAR},
+      </if>
+      <if test="commentWebsitVersion != null" >
+        #{commentWebsitVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterBrowserType != null" >
+        #{commenterBrowserType,jdbcType=VARCHAR},
+      </if>
+      <if test="commenterBrowserVersion != null" >
+        #{commenterBrowserVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="commentTime != null" >
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

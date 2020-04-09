@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.websit.log.mapper.EomsWebsitLogMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.websit.log.model.EomsWebsitLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="visitor" property="visitor" jdbcType="VARCHAR" />
+    <result column="visitor_id" property="visitorId" jdbcType="VARCHAR" />
+    <result column="visitor_phone" property="visitorPhone" jdbcType="VARCHAR" />
+    <result column="visit_time" property="visitTime" jdbcType="TIMESTAMP" />
+    <result column="visit_content" property="visitContent" jdbcType="VARCHAR" />
+    <result column="visit_origin" property="visitOrigin" jdbcType="VARCHAR" />
+    <result column="visitor_url" property="visitorUrl" jdbcType="VARCHAR" />
+    <result column="visitor_ip" property="visitorIp" jdbcType="VARCHAR" />
+    <result column="visit_product_id" property="visitProductId" jdbcType="VARCHAR" />
+    <result column="visit_product_name" property="visitProductName" jdbcType="VARCHAR" />
+    <result column="visit_tool_id" property="visitToolId" jdbcType="VARCHAR" />
+    <result column="visit_tool_name" property="visitToolName" jdbcType="VARCHAR" />
+    <result column="visitor_os" property="visitorOs" jdbcType="VARCHAR" />
+    <result column="visitor_os_version" property="visitorOsVersion" jdbcType="VARCHAR" />
+    <result column="visitor_os_bit" property="visitorOsBit" jdbcType="VARCHAR" />
+    <result column="visit_websit_version" property="visitWebsitVersion" jdbcType="VARCHAR" />
+    <result column="visitor_browser_type" property="visitorBrowserType" jdbcType="VARCHAR" />
+    <result column="visitor_browser_version" property="visitorBrowserVersion" jdbcType="VARCHAR" />
+    <result column="visit_way" property="visitWay" jdbcType="VARCHAR" />
+    <result column="duration_id" property="durationId" jdbcType="VARCHAR" />
+    <result column="visitor_primary_key" property="visitorPrimaryKey" jdbcType="VARCHAR" />
+    <result column="visitor_country" property="visitorCountry" jdbcType="VARCHAR" />
+    <result column="visitor_province" property="visitorProvince" jdbcType="VARCHAR" />
+    <result column="visitor_city" property="visitorCity" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, visitor, visitor_id, visitor_phone, visit_time, visit_content, visit_origin,
+    visitor_url, visitor_ip, visit_product_id, visit_product_name, visit_tool_id, visit_tool_name,
+    visitor_os, visitor_os_version, visitor_os_bit, visit_websit_version, visitor_browser_type,
+    visitor_browser_version, visit_way, duration_id,visitor_primary_key,visitor_country,
+    visitor_province,visitor_city
+  </sql>
+
+  <insert id="insert" parameterType="com.boco.eoms.websit.log.model.EomsWebsitLog" >
+    insert into eoms_websit_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="visitor != null" >
+        visitor,
+      </if>
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="visitorPhone != null" >
+        visitor_phone,
+      </if>
+      <if test="visitTime != null" >
+        visit_time,
+      </if>
+      <if test="visitContent != null" >
+        visit_content,
+      </if>
+      <if test="visitOrigin != null" >
+        visit_origin,
+      </if>
+      <if test="visitorUrl != null" >
+        visitor_url,
+      </if>
+      <if test="visitorIp != null" >
+        visitor_ip,
+      </if>
+      <if test="visitProductId != null" >
+        visit_product_id,
+      </if>
+      <if test="visitProductName != null" >
+        visit_product_name,
+      </if>
+      <if test="visitToolId != null" >
+        visit_tool_id,
+      </if>
+      <if test="visitToolName != null" >
+        visit_tool_name,
+      </if>
+      <if test="visitorOs != null" >
+        visitor_os,
+      </if>
+      <if test="visitorOsVersion != null" >
+        visitor_os_version,
+      </if>
+      <if test="visitorOsBit != null" >
+        visitor_os_bit,
+      </if>
+      <if test="visitWebsitVersion != null" >
+        visit_websit_version,
+      </if>
+      <if test="visitorBrowserType != null" >
+        visitor_browser_type,
+      </if>
+      <if test="visitorBrowserVersion != null" >
+        visitor_browser_version,
+      </if>
+      <if test="visitWay != null" >
+        visit_way,
+      </if>
+      <if test="durationId != null" >
+        duration_id,
+      </if>
+      <if test="visitorPrimaryKey != null" >
+        visitor_primary_key,
+      </if>
+      <if test="visitorCountry != null" >
+        visitor_country,
+      </if>
+      <if test="visitorProvince != null" >
+        visitor_province,
+      </if>
+      <if test="visitorCity != null" >
+        visitor_city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="visitor != null" >
+        #{visitor,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorPhone != null" >
+        #{visitorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="visitTime != null" >
+        #{visitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitContent != null" >
+        #{visitContent,jdbcType=VARCHAR},
+      </if>
+      <if test="visitOrigin != null" >
+        #{visitOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorUrl != null" >
+        #{visitorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorIp != null" >
+        #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitProductId != null" >
+        #{visitProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitProductName != null" >
+        #{visitProductName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitToolId != null" >
+        #{visitToolId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitToolName != null" >
+        #{visitToolName,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOs != null" >
+        #{visitorOs,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOsVersion != null" >
+        #{visitorOsVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOsBit != null" >
+        #{visitorOsBit,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWebsitVersion != null" >
+        #{visitWebsitVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorBrowserType != null" >
+        #{visitorBrowserType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorBrowserVersion != null" >
+        #{visitorBrowserVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWay != null" >
+        #{visitWay,jdbcType=VARCHAR},
+      </if>
+      <if test="durationId != null" >
+        #{durationId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorPrimaryKey != null" >
+        #{visitorPrimaryKey,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorCountry != null" >
+        #{visitorCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorProvince != null" >
+        #{visitorProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorCity != null" >
+        #{visitorCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getUserVisitNum" resultType="map">
+      SELECT
+        DATE_FORMAT(ewl.visit_time, '%Y.%m.%d') AS visitTime,
+        COUNT(
+          DISTINCT ewl.visitor_primary_key
+        ) AS userNum
+      FROM
+        eoms_websit_log ewl
+      WHERE ewl.visit_content = '首页'
+      GROUP BY DATE_FORMAT(ewl.visit_time, '%Y.%m.%d')
+  </select>
+
+  <select id="getUserNumByCondition" resultType="map">
+      SELECT
+        DATE_FORMAT(ewl.visit_time, '%Y.%m.%d') AS visitTime,
+        COUNT(
+          DISTINCT ewl.visitor_primary_key
+        ) AS userNum
+      FROM
+        eoms_websit_log ewl
+      WHERE ewl.visit_content = #{visitContent,jdbcType=VARCHAR}
+      <if test="visitOrigin != null and visitOrigin!=''">
+        and ewl.visit_origin = #{visitOrigin,jdbcType=VARCHAR}
+      </if>
+      GROUP BY DATE_FORMAT(ewl.visit_time, '%Y.%m.%d')
+  </select>
+
+  <select id="getUserLoginNum" resultType="map">
+    SELECT
+      DATE_FORMAT(ewl.visit_time, '%Y.%m.%d') AS loginTime,
+      COUNT(1) AS userNum
+    FROM
+      eoms_websit_log ewl
+    WHERE ewl.visit_content = '用户登录'  AND ewl.visitor_phone !=''
+    GROUP BY DATE_FORMAT(ewl.visit_time, '%Y.%m.%d')
+  </select>
+
+  <select id="getContentVisitNum" resultType="map">
+    SELECT
+    <if test="timeType == 'day'" >
+      DATE_FORMAT(ewl.visit_time, '%Y.%m.%d') AS visitTime,
+    </if>
+    <choose>
+      <when test="containTourist == 'true'">
+        COUNT(1) AS userNum,
+      </when>
+      <otherwise>
+        COUNT(
+        ewl.visitor_primary_key
+        ) AS userNum,
+      </otherwise>
+    </choose>
+    <choose>
+      <when test="visitContent.indexOf('产品') >= 0">
+        ewl.visit_product_name visitProductName,
+      </when>
+      <otherwise>
+        ewl.visit_tool_name visitToolName,
+      </otherwise>
+    </choose>
+    ewl.visit_content visitContent
+    FROM
+    eoms_websit_log ewl WHERE  ewl.visit_content = #{visitContent,jdbcType=VARCHAR}
+    <if test="visitOrigin !=''" >
+      AND ewl.visit_origin =#{visitOrigin,jdbcType=VARCHAR}
+    </if>
+    <if test="containTourist == 'false'" >
+      AND ewl.visitor_phone != ''
+    </if>
+    <if test="visitContentId != ''" >
+      <choose>
+        <when test="visitContent.indexOf('产品') >= 0">
+          AND ewl.visit_product_id =#{visitContentId,jdbcType=VARCHAR}
+        </when>
+        <otherwise>
+          AND ewl.visit_tool_id =#{visitContentId,jdbcType=VARCHAR}
+        </otherwise>
+      </choose>
+    </if>
+    GROUP BY
+    <if test="timeType == 'day'" >
+      DATE_FORMAT(ewl.visit_time, '%Y.%m.%d'),
+    </if>
+    <choose>
+      <when test="visitContent.indexOf('产品') >= 0">
+        ewl.visit_product_id
+      </when>
+      <otherwise>
+        ewl.visit_tool_id
+      </otherwise>
+    </choose>
+  </select>
+
+</mapper>

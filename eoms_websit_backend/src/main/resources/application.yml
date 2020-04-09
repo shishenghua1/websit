@@ -1,0 +1,53 @@
+server:
+  port: 8002
+  tomcat:
+      min-spare-threads: 50
+      max-threads: 200
+      uri-encoding: UTF-8
+  connection-timeout: 30000
+spring:
+  #切换环境
+  profiles:
+      active: dev
+  session:
+      store-type: none
+  http:
+      encoding:
+          force: true
+          charset: UTF-8
+          enabled: true
+  jackson:
+      time-zone: GMT+8
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  #type-aliases-package: com.*.model
+  type-aliases-package: com.boco.eoms.websit.*.model
+
+#mapper
+#mappers 多个接口时逗号隔开
+#mapper:
+#  mappers: com.boco.eoms.base.commonmybatis.basemapper.BaseMapper
+#  not-empty: false
+#  identity: MYSQL
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  
+logging:
+  level:
+     com.boco.eoms.websit.systemuser.mapper : debug
+
+defaultAccessTime:
+  minute: 15
+  
+#短信配置
+qcloudsms: 
+  appId: 1400286763 
+  appKey: e4e50dfbd43f08f72aef3045ffad7924
+  templateId: 485441
+  smsSign: 惠及经验

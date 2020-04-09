@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://10.91.0.101:3306/eoms_product?characterEncoding=UTF-8
+    username: eoms_product
+    password: eoms_product
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    druid:
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'X'
+      #在检查闲置连接时同时检查连接可用性
+      test-while-idle: true
+      #在借出连接时检查连接可用性
+      test-on-borrow: false
+      #在客户端归还连接时检查连接可用性
+      test-on-return: false
+
+#日志输出位置
+logging:
+  path: /opt/eoms_websit/logs
+
+#oauth2服务模块
+oauth2Server:
+  ip: 10.91.0.122
+  port: 8003
+  version: v1
+  client_id_value_pwd_mod: client_1
+  client_secret_value_pwd_mod: 123456
+
+#ip获取地域的离线库文件
+geoLite2City:
+  filePath: /opt/eoms_websit/geoLite2-city/GeoLite2-City.mmdb

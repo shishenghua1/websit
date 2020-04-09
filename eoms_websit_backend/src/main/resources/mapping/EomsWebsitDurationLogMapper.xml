@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.websit.log.mapper.EomsWebsitDurationLogMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.websit.log.model.EomsWebsitLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="visitor_primary_key" property="visitorPrimaryKey" jdbcType="VARCHAR" />
+    <result column="visitor" property="visitor" jdbcType="VARCHAR" />
+    <result column="visitor_id" property="visitorId" jdbcType="VARCHAR" />
+    <result column="visitor_phone" property="visitorPhone" jdbcType="VARCHAR" />
+    <result column="visit_first_time" property="visitFirstTime" jdbcType="TIMESTAMP" />
+    <result column="visit_newest_time" property="visitNewestTime" jdbcType="TIMESTAMP" />
+    <result column="quit_time" property="quitTime" jdbcType="TIMESTAMP" />
+    <result column="visitor_url" property="visitorUrl" jdbcType="VARCHAR" />
+    <result column="visitor_ip" property="visitorIp" jdbcType="VARCHAR" />
+    <result column="visitor_os" property="visitorOs" jdbcType="VARCHAR" />
+    <result column="visitor_os_version" property="visitorOsVersion" jdbcType="VARCHAR" />
+    <result column="visitor_os_bit" property="visitorOsBit" jdbcType="VARCHAR" />
+    <result column="visit_websit_version" property="visitWebsitVersion" jdbcType="VARCHAR" />
+    <result column="visitor_browser_type" property="visitorBrowserType" jdbcType="VARCHAR" />
+    <result column="visitor_browser_version" property="visitorBrowserVersion" jdbcType="VARCHAR" />
+    <result column="visit_way" property="visitWay" jdbcType="VARCHAR" />
+    <result column="visitor_country" property="visitorCountry" jdbcType="VARCHAR" />
+    <result column="visitor_province" property="visitorProvince" jdbcType="VARCHAR" />
+    <result column="visitor_city" property="visitorCity" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, visitor_primary_key, visitor, visitor_id, visitor_phone, visit_first_time, visit_newest_time,
+    quit_time, visitor_url, visitor_ip, visitor_os, visitor_os_version, visitor_os_bit,
+    visit_websit_version, visitor_browser_type, visitor_browser_version, visit_way,visitor_country,
+    visitor_province,visitor_city
+  </sql>
+
+  <select id="selectByVisitInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from eoms_websit_duration_log
+    where visitor_primary_key=#{visitorPrimaryKey,jdbcType=VARCHAR}
+    order by visit_newest_time desc limit 1
+  </select>
+
+  <insert id="insert" parameterType="com.boco.eoms.websit.log.model.EomsWebsitLog" >
+    insert into eoms_websit_duration_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="durationId != null" >
+        id,
+      </if>
+      <if test="visitorPrimaryKey != null" >
+        visitor_primary_key,
+      </if>
+      <if test="visitor != null" >
+        visitor,
+      </if>
+      <if test="visitorId != null" >
+        visitor_id,
+      </if>
+      <if test="visitorPhone != null" >
+        visitor_phone,
+      </if>
+      <if test="visitFirstTime != null" >
+        visit_first_time,
+      </if>
+      <if test="visitNewestTime != null" >
+        visit_newest_time,
+      </if>
+      <if test="quitTime != null" >
+        quit_time,
+      </if>
+      <if test="visitorUrl != null" >
+        visitor_url,
+      </if>
+      <if test="visitorIp != null" >
+        visitor_ip,
+      </if>
+      <if test="visitorOs != null" >
+        visitor_os,
+      </if>
+      <if test="visitorOsVersion != null" >
+        visitor_os_version,
+      </if>
+      <if test="visitorOsBit != null" >
+        visitor_os_bit,
+      </if>
+      <if test="visitWebsitVersion != null" >
+        visit_websit_version,
+      </if>
+      <if test="visitorBrowserType != null" >
+        visitor_browser_type,
+      </if>
+      <if test="visitorBrowserVersion != null" >
+        visitor_browser_version,
+      </if>
+      <if test="visitWay != null" >
+        visit_way,
+      </if>
+      <if test="visitorCountry != null" >
+        visitor_country,
+      </if>
+      <if test="visitorProvince != null" >
+        visitor_province,
+      </if>
+      <if test="visitorCity != null" >
+        visitor_city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="durationId != null" >
+        #{durationId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorPrimaryKey != null" >
+        #{visitorPrimaryKey,jdbcType=VARCHAR},
+      </if>
+      <if test="visitor != null" >
+        #{visitor,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorId != null" >
+        #{visitorId,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorPhone != null" >
+        #{visitorPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="visitFirstTime != null" >
+        #{visitFirstTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitNewestTime != null" >
+        #{visitNewestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitTime != null" >
+        #{quitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitorUrl != null" >
+        #{visitorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorIp != null" >
+        #{visitorIp,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOs != null" >
+        #{visitorOs,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOsVersion != null" >
+        #{visitorOsVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorOsBit != null" >
+        #{visitorOsBit,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWebsitVersion != null" >
+        #{visitWebsitVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorBrowserType != null" >
+        #{visitorBrowserType,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorBrowserVersion != null" >
+        #{visitorBrowserVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="visitWay != null" >
+        #{visitWay,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorCountry != null" >
+        #{visitorCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorProvince != null" >
+        #{visitorProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="visitorCity != null" >
+        #{visitorCity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.boco.eoms.websit.log.model.EomsWebsitLog" >
+    update eoms_websit_duration_log
+    <set >
+      <if test="visitNewestTime != null" >
+        visit_newest_time = #{visitNewestTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitTime != null" >
+        quit_time = #{quitTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

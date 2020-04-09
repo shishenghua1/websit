@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boco.eoms.websit.sms.mapper.EomsWebsitSmsMapper" >
+  <resultMap id="BaseResultMap" type="com.boco.eoms.websit.sms.model.EomsWebsitSms" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, mobile, code, content, send_time, deleted 
+  </sql>
+
+  <select id="selectCodeByMobile" resultType="java.util.Map" parameterType="java.lang.String" >
+    select code,max(send_time) sendTime from eoms_websit_sms where deleted = '0' and mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="selectByCodeAndMobile" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	select * from eoms_websit_sms where deleted = '0' and mobile = #{mobile,jdbcType=VARCHAR} and code = #{code,jdbcType=VARCHAR}
+   </select>
+
+  <insert id="insert" parameterType="com.boco.eoms.websit.sms.model.EomsWebsitSms" >
+    insert into eoms_websit_sms (id, mobile, code, content, send_time, deleted )
+    values (#{id,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=VARCHAR})
+  </insert>
+  
+  <update id="deleteByMobile" parameterType="java.lang.String" >
+    update eoms_websit_sms set deleted = '1' where mobile = #{mobile,jdbcType=VARCHAR}
+   </update>
+
+</mapper>
